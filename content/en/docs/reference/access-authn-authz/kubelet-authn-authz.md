@@ -84,3 +84,16 @@ flags passed to the apiserver is authorized for the following attributes:
 * verb=\*, resource=nodes, subresource=log
 * verb=\*, resource=nodes, subresource=spec
 * verb=\*, resource=nodes, subresource=metrics
+
+### Example ClusteRole
+
+```
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kubelet-auth-role
+rules:
+  - apiGroups: [""]
+    resources: ["nodes/checkpoint"]
+    verbs: ["create", "get", "update", "patch", "delete"]
+```
